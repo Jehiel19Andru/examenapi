@@ -6,7 +6,7 @@ from Puzzle1 import buscar_solucion_DFS
 
 app = Flask(__name__)
 
-@app.route('/https://examenapi-oovt.onrender.com')
+@app.route('/')
 def index():
     return render_template('index.html')
 @app.route('/solve', methods=['POST'])
