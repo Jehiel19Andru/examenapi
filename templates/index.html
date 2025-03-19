@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFS Solver</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #1e1e1e;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+        h1 {
+            color: #00bcd4;
+        }
+        form {
+            margin: 20px auto;
+            width: 350px;
+            border-radius: 8px;
+            background-color: #2c2c2c;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            text-align: left;
+        }
+        input, select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #00bcd4;
+            border-radius: 4px;
+            background-color: #1e1e1e;
+            margin-bottom: 15px;
+            outline: none;
+            font-size: 16px;
+            color: #ffffff;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #00bcd4;
+            color: #1e1e1e;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #008ba3;
+        }
+        .caja {
+            margin: 20px auto;
+            width: 350px;
+            border: 1px solid #00bcd4;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #2c2c2c;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .caja ul {
+            list-style: none;
+            padding: 0;
+        }
+        .caja li {
+            background-color: #00bcd4;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            color: #1e1e1e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>DFS Solver</h1>
+    <form action="/solve" method="post">
+        <label for="estado_inicial">Estado Inicial (separado por comas):</label>
+        <input type="text" id="estado_inicial" name="estado_inicial" placeholder="Ejemplo: 4,2,3,1" required>
+    
+        <label for="solucion">Solución (separado por comas):</label>
+        <input type="text" id="solucion" name="solucion" placeholder="Ejemplo: 1,2,3,4" required>
+    
+        <label for="algoritmo">Selecciona el algoritmo:</label>
+        <select id="algoritmo" name="algoritmo" required>
+            <option value="DFS">DFS</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="Puzzle1">Puzzle1</option>
+        </select>
+    
+        <button type="submit">Resolver</button>
+    </form>
+
+    {% if resultado %}
+    <div class="caja">
+        <h2>Resultado:</h2>
+        <ul>
+            {% for estado in resultado %}
+                 <li>{{ estado }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</body>
+</html>
